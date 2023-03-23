@@ -22,11 +22,13 @@ public class Main {
         user.setAge((byte) 31);
         HttpEntity<User> userHttpEntity = new HttpEntity<>(user,httpHeaders);
         completed.append(restTemplate.postForObject(url,userHttpEntity,String.class));
+        System.out.println(completed);
 
         user.setName("Thomas");
         user.setLastName("Shelby");
         HttpEntity<User> userHttpEntity1 = new HttpEntity<>(user, httpHeaders);
         completed.append(restTemplate.exchange(url, HttpMethod.PUT,userHttpEntity,String.class).getBody());
+        System.out.println(completed);
 
         HttpEntity<User> userHttpEntity2 = new HttpEntity<>(httpHeaders);
         completed.append(restTemplate.exchange(url+"/3",HttpMethod.DELETE,userHttpEntity2,String.class).getBody());
