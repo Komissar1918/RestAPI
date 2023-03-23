@@ -19,12 +19,12 @@ public class Main {
         user.setId(3L);
         user.setName("James");
         user.setLastName("Brown");
-        user.setAge((byte) 20);
+        user.setAge((byte) 31);
         HttpEntity<User> userHttpEntity = new HttpEntity<>(user,httpHeaders);
         completed.append(restTemplate.postForObject(url,userHttpEntity,String.class));
 
-        user.setName("James");
-        user.setLastName("Brown");
+        user.setName("Thomas");
+        user.setLastName("Shelby");
         HttpEntity<User> userHttpEntity1 = new HttpEntity<>(user, httpHeaders);
         completed.append(restTemplate.exchange(url, HttpMethod.PUT,userHttpEntity,String.class).getBody());
 
